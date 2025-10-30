@@ -76,3 +76,91 @@ async function calculateRoute() {
                 });
             });
         });
+
+// Função para abrir o modal de boas-vindas
+function openWelcomeModal() {
+    const modal = document.getElementById('welcomeModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Função para fechar o modal
+function closeWelcomeModal() {
+    const modal = document.getElementById('welcomeModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+        // Removido o sessionStorage para aparecer sempre
+    }
+}
+
+// Inicialização do modal
+document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('welcomeModal');
+    
+    if (!modal) {
+        return;
+    }
+    
+    // Mostrar modal sempre ao carregar a página
+    setTimeout(() => {
+        openWelcomeModal();
+    }, 500);
+    
+    // Fechar ao clicar no overlay
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeWelcomeModal();
+        }
+    });
+    
+    // Fechar com tecla ESC
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('active')) {
+            closeWelcomeModal();
+        }
+    });
+});
+
+// Função para abrir modal de cálculos
+function openCalculationsModal() {
+    const modal = document.getElementById('calculationsModal');
+    if (modal) {
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+// Função para fechar modal de cálculos
+function closeCalculationsModal() {
+    const modal = document.getElementById('calculationsModal');
+    if (modal) {
+        modal.classList.remove('active');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+// Adicionar listeners para o modal de cálculos
+document.addEventListener('DOMContentLoaded', function() {
+    const calculationsModal = document.getElementById('calculationsModal');
+    
+    if (calculationsModal) {
+        // Fechar ao clicar no overlay
+        calculationsModal.addEventListener('click', function(e) {
+            if (e.target === calculationsModal) {
+                closeCalculationsModal();
+            }
+        });
+        
+        // Fechar com ESC
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && calculationsModal.classList.contains('active')) {
+                closeCalculationsModal();
+            }
+        });
+    }
+});
+
+        

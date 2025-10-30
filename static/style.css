@@ -344,4 +344,317 @@
 }
 
         }
-    
+
+
+/* Modal Popup */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-overlay.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    max-width: 600px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    position: relative;
+    animation: slideUp 0.4s ease;
+}
+
+.modal-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.modal-header i {
+    font-size: 3.5rem;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+    display: block;
+    animation: pulse 2s infinite;
+}
+
+.modal-header h2 {
+    color: var(--primary-green);
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+.modal-header p {
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+.modal-body {
+    color: #333;
+    line-height: 1.8;
+}
+
+.modal-body h3 {
+    color: var(--primary-green);
+    font-size: 1.3rem;
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-body ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.modal-body li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.modal-body li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--primary-green);
+    font-weight: bold;
+}
+
+.modal-footer {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 2px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-footer p {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.btn-close-modal {
+    background: linear-gradient(135deg, var(--primary-green), #27ae60);
+    color: white;
+    border: none;
+    padding: 0.875rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.btn-close-modal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+
+
+.btn-close-modal {
+    background: linear-gradient(135deg, var(--primary-green), #27ae60);
+    color: white;
+    border: none;
+    padding: 0.875rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(46, 204, 113, 0.3);
+}
+
+.btn-close-modal:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.4);
+}
+
+.facens-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 0.5rem;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Efeito de brilho na folha do header */
+.header .icon {
+    position: relative;
+    display: inline-block;
+    /* animation: leafGlow 3s ease-in-out infinite; */
+    transition: all 0.3s ease;
+}
+
+@keyframes leafGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 5px rgba(46, 204, 113, 0.5));
+        transform: scale(1);
+    }
+    50% {
+        filter: drop-shadow(0 0 20px rgba(46, 204, 113, 0.9)) 
+                drop-shadow(0 0 30px rgba(46, 204, 113, 0.6));
+        transform: scale(1.1);
+    }
+}
+
+/* Brilho intenso ao passar o mouse */
+.header .icon:hover {
+    filter: drop-shadow(0 0 25px rgba(46, 204, 113, 1)) 
+            drop-shadow(0 0 40px rgba(46, 204, 113, 0.8)) 
+            drop-shadow(0 0 60px rgba(46, 204, 113, 0.4)) !important;
+    transform: scale(1.2) rotate(10deg);
+    transition: all 0.3s ease;
+    animation: none; /* Para a animação durante o hover */
+}
+
+/* Botão Saiba Mais */
+.btn-saiba-mais {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 0.875rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-saiba-mais:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.btn-saiba-mais i {
+    font-size: 1.1rem;
+}
+
+/* Caixas de fórmulas e cálculos */
+.formula-box, .calculation-box {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    border-left: 4px solid var(--primary-green);
+    padding: 1.25rem;
+    border-radius: 0.75rem;
+    margin: 1rem 0;
+    font-family: 'Courier New', monospace;
+}
+
+.formula-box code {
+    display: block;
+    color: #2c3e50;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    word-wrap: break-word;
+}
+
+.calculation-box p {
+    margin: 0.5rem 0;
+    color: #2c3e50;
+    font-size: 0.95rem;
+}
+
+.calculation-box p strong {
+    color: var(--primary-green);
+}
+
+/* Destaque de informação */
+.info-highlight {
+    background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+    border-left: 4px solid #ffc107;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.info-highlight i {
+    color: #ffc107;
+    font-size: 1.5rem;
+    margin-top: 0.25rem;
+}
+
+.info-highlight p {
+    margin: 0;
+    color: #856404;
+    font-size: 0.95rem;
+}
+
+/* Ajustes para o modal de cálculos */
+#calculationsModal .modal-content {
+    max-width: 700px;
+}
+
+#calculationsModal .modal-body h3 {
+    margin-top: 1.75rem;
+}
+
+#calculationsModal .modal-body h3:first-child {
+    margin-top: 0;
+}

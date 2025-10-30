@@ -3,15 +3,172 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EcoRouter - Escolha a rota que o planeta agradece 🌍</title>
+    <title>EcoRouter</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{ url_for('static', filename='favicon.svg') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
 
     <!-- Seu CSS externo -->
     <link rel="stylesheet" href="static/style.css">
 
 </head>
 <body>
+    <!-- Modal Popup -->
+    <div class="modal-overlay" id="welcomeModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <i class="fas fa-leaf"></i>
+                <h2>Bem-vindo ao EcoRouter!</h2>
+                <span class="facens-badge">Upx</span>
+            </div>
+            
+            <div class="modal-body">
+                <p style="font-size: 1.1rem; margin-bottom: 1rem;">
+                    O <strong>EcoRouter</strong> é um projeto acadêmico desenvolvido por estudantes da 
+                    <strong>FACENS - Sorocaba</strong>, com o objetivo de promover a sustentabilidade 
+                    no transporte urbano.
+                </p>
+
+                <h3>
+                    <i class="fas fa-bullseye"></i>
+                    Nosso Objetivo
+                </h3>
+                <p>
+                    Calcular rotas inteligentes que <strong>reduzem as emissões de CO₂</strong>, 
+                    ajudando motoristas a economizarem combustível e contribuírem para um 
+                    planeta mais sustentável.
+                </p>
+
+                <h3>
+                    <i class="fas fa-lightbulb"></i>
+                    Como Funciona?
+                </h3>
+                <ul>
+                    <li>Informe sua origem e destino</li>
+                    <li>Digite quantas vezes por semana você faz esse trajeto</li>
+                    <li>Receba a rota ecológica otimizada</li>
+                    <li>Veja quanto CO₂ você pode economizar por ano!</li>
+                </ul>
+            </div>
+
+            <div class="modal-footer">
+                <p>Juntos por um planeta mais sustentável</p>
+                <button class="btn-close-modal" onclick="closeWelcomeModal()">
+                    🌿 Começar a Calcular
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Saiba Mais sobre Cálculos -->
+<div class="modal-overlay" id="calculationsModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <i class="fas fa-calculator"></i>
+            <h2>Como Calculamos a Economia de CO₂</h2>
+            <p>Entenda a metodologia por trás do EcoRouter</p>
+        </div>
+        
+        <div class="modal-body">
+
+            <h3>
+                <i class="fas fa-car"></i>
+                Fatores de Emissão 
+            </h3>
+            <p>Baseamos nossos cálculos em dados de emissões de <strong>carros movidos a gasolina</strong>:</p>
+            <ul>
+                <li><strong>Rota Padrão:</strong> 0.120 kg CO₂/km (com trânsito e paradas frequentes)</li>
+                <li><strong>Rota Ecológica:</strong> 0.095 kg CO₂/km (velocidade constante, menos congestionamento)</li>
+            </ul>
+            <br style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
+                <i class="fas fa-info-circle"></i>
+                <strong>Média utilizada:</strong> Carro de passeio médio brasileiro (1.0 - 2.0, gasolina), 
+                com base em dados do IPCC e CONPET. </br>
+                <strong class="text-danger">Isso apenas em faze teste</strong> A itenção é ja pegar os valores reias da API
+            </p>
+
+            <h3>
+                <i class="fas fa-leaf"></i>
+                Integração com API
+            </h3>
+            <p>Ultilizamos a integração com API do ...:</p>
+            <p>
+                asasasasas
+            </p>
+
+            
+
+            <h3>
+                <i class="fas fa-chart-line"></i>
+                Cálculo de Economia Anual
+            </h3>
+            <p>A economia é calculada considerando:</p>
+            <div class="calculation-box">
+                <p><strong>Emissão Padrão Anual =</strong></p>
+                <p>Distância × Fator de Emissão × Frequência Semanal × 52 semanas</p>
+                <br>
+                <p><strong>Emissão Eco Anual =</strong></p>
+                <p>Distância × Fator de Emissão × Frequência Semanal × 52 semanas</p>
+                <br>
+                <p><strong>Economia =</strong></p>
+                <p>Emissão Padrão - Emissão Eco</p>
+            </div>
+
+            <h3>
+                <i class="fas fa-tree"></i>
+                Equivalências Educativas
+            </h3>
+            <ul>
+                <li><strong>Árvores:</strong> Uma árvore adulta absorve ~21 kg de CO₂ por ano</li>
+                <li><strong>Quilômetros:</strong> Com a economia, equivale a não dirigir</li>
+            </ul>
+
+            <h3>
+    <i class="fas fa-map-marked-alt"></i>
+    Por que a Rota Eco pode ser Maior?
+</h3>
+<p>
+    A rota ecológica <strong>pode ser ligeiramente mais longa</strong> que a rota convencional, 
+    mas compensa ao evitar:
+</p>
+<ul>
+    <li>Congestionamentos e trânsito intenso</li>
+    <li>Paradas e arranques frequentes</li>
+    <li>Semáforos e cruzamentos problemáticos</li>
+</ul>
+<div class="eco-highlight">
+    <p style="font-size: 1.1rem; margin: 0;">
+        Mesmo sendo mais longa, a rota eco emite 
+        <span style="color: var(--primary-green); font-weight: bold; font-size: 1.2rem;">até 20% menos CO₂!</span>
+    </p>
+    <p style="margin-top: 1rem; font-size: 1rem; color: #2c3e50;">
+        <strong>💚 Cada quilograma de CO₂ economizado salva a natureza e contribui 
+        para um ar mais limpo, ajudando a preservar vidas.</strong>
+    </p>
+</div>
+
+            <div class="info-highlight">
+                <i class="fas fa-lightbulb"></i>
+                <p>
+                    <strong>Nota:</strong> Em produção, o sistema integraria APIs reais de roteamento 
+                    (Google Maps, OpenRouteService) para dados reais!
+                </p>
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <p>🧮 Cálculos baseados em dados reais em comparação <strong>rota padrão</strong> e <strong>rota ecológica</strong>  </p>
+            <button class="btn-close-modal" onclick="closeCalculationsModal()">
+                ✓ Entendi
+            </button>
+        </div>
+    </div>
+</div>
+
+
     <div class="main-container">
         <!-- Header -->
         <div class="header">
@@ -19,7 +176,7 @@
                 <i class="fas fa-leaf icon"></i>
                 EcoRouter
             </h1>
-            <p>Escolha a rota que o planeta agradece 🌍</p>
+            <p>Escolha a rota que o planeta agradece</p>
         </div>
 
         <!-- Formulário -->
@@ -93,7 +250,7 @@
                         </p>
                     </div>
                     <div class="comparison-item">
-                        <p style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">Evitar dirigir</p>
+                        <p style="font-size: 0.875rem; opacity: 0.9; margin-bottom: 0.5rem;">Equivale a não dirigir</p>
                         <p style="font-size: 1.5rem; font-weight: bold; margin: 0;">
                             <span id="kmCarEquivalent"></span> km 🚗
                         </p>
@@ -121,6 +278,13 @@
                 <div class="info-item">
                     <p><strong>🌍 Efeito multiplicador:</strong> Se cada pessoa fizesse essa escolha, as emissões do transporte urbano cairiam significativamente!</p>
                 </div>
+
+                <div style="text-align: center; margin-top: 2rem;">
+                <button class="btn-saiba-mais" onclick="openCalculationsModal()">
+                    <i class="fas fa-calculator"></i>
+                    Saiba mais sobre os cálculos
+                </button>
+            </div>
             </div>
         </div>
 
