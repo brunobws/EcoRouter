@@ -83,23 +83,64 @@
             </h3>
             <p>Baseamos nossos cálculos em dados de emissões de <strong>carros movidos a gasolina</strong>:</p>
             <ul>
-                <li><strong>Rota Padrão:</strong> 0.120 kg CO₂/km (com trânsito e paradas frequentes)</li>
-                <li><strong>Rota Ecológica:</strong> 0.095 kg CO₂/km (velocidade constante, menos congestionamento)</li>
+                <li><strong>Outra rota:</strong> 0.165 kg CO₂/km (com tráfego e paradas frequentes - pior cenário)</li>
+                <li><strong>Rota Ecológica:</strong> 0.115 a 0.148 kg CO₂/km (otimizada conforme EcoScore)</li>
             </ul>
-            <br style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
+            <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">
                 <i class="fas fa-info-circle"></i>
                 <strong>Média utilizada:</strong> Carro de passeio médio brasileiro (1.0 - 2.0, gasolina), 
-                com base em dados do IPCC e CONPET. </br>
-                <strong class="text-danger">Isso apenas em faze teste</strong> A itenção é ja pegar os valores reias da API
+                com base em dados do IPCC e CONPET.
             </p>
 
-            <h3>
-                <i class="fas fa-leaf"></i>
-                Integração com API
+            <h3 style="margin-top: 1.5rem;">
+                <i class="fas fa-star"></i>
+                Tabela de Pesos - EcoScore v4
             </h3>
-            <p>Ultilizamos a integração com API do ...:</p>
-            <p>
-                asasasasas
+            <p>A rota ecológica é selecionada com base em 6 fatores científicos:</p>
+            
+            <div style="overflow-x: auto; margin: 1rem 0;">
+                <table style="width: 100%; border-collapse: collapse; font-size: 0.9rem;">
+                    <thead>
+                        <tr style="background-color: var(--primary-green); color: white;">
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">Fator</th>
+                            <th style="padding: 0.75rem; text-align: center; border: 1px solid #ddd;">Peso</th>
+                            <th style="padding: 0.75rem; text-align: left; border: 1px solid #ddd;">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="background-color: #f9fafb;">
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;"><strong>Fluidez</strong></td>
+                            <td style="padding: 0.75rem; text-align: center; border: 1px solid #ddd;">35%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Tempo + Tráfego + Paradas (subscore)</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;"><strong>Elevação</strong></td>
+                            <td style="padding: 0.75rem; text-align: center; border: 1px solid #ddd;">20%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Altitude do trajeto (exponencial)</td>
+                        </tr>
+                        <tr style="background-color: #f9fafb;">
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;"><strong>Distância</strong></td>
+                            <td style="padding: 0.75rem; text-align: center; border: 1px solid #ddd;">25%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Comprimento total do trajeto</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;"><strong>Via</strong></td>
+                            <td style="padding: 0.75rem; text-align: center; border: 1px solid #ddd;">15%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Tipo de rodovia (rodovia vs rua)</td>
+                        </tr>
+                        <tr style="background-color: #f9fafb;">
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;"><strong>Subscore Tempo</strong></td>
+                            <td style="padding: 0.75rem; text-align: center; border: 1px solid #ddd;">5%</td>
+                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Margem de reserva</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p style="font-size: 0.85rem; color: #6c757d; margin-top: 1rem;">
+                <i class="fas fa-lightbulb"></i>
+                <strong>Como funciona:</strong> Cada fator é normalizado dinamicamente (0-100) baseado nas rotas disponíveis. 
+                A rota com maior EcoScore (melhor pontuação) é selecionada como a rota ecológica.
             </p>
 
             
@@ -131,11 +172,11 @@
 
             <h3>
     <i class="fas fa-map-marked-alt"></i>
-    Por que a Rota Eco pode ser Maior?
+    Por que a Rota Eco pode ser Diferente?
 </h3>
 <p>
-    A rota ecológica <strong>pode ser ligeiramente mais longa</strong> que a rota convencional, 
-    mas compensa ao evitar:
+    A rota ecológica pode ter <strong>distância ligeiramente diferente</strong> que a outra rota, 
+    mas é otimizada para evitar:
 </p>
 <ul>
     <li>Congestionamentos e trânsito intenso</li>
@@ -144,7 +185,7 @@
 </ul>
 <div class="eco-highlight">
     <p style="font-size: 1.1rem; margin: 0;">
-        Mesmo sendo mais longa, a rota eco emite 
+        A rota ecológica emite 
         <span style="color: var(--primary-green); font-weight: bold; font-size: 1.2rem;">até 20% menos CO₂!</span>
     </p>
     <p style="margin-top: 1rem; font-size: 1rem; color: #2c3e50;">
@@ -247,10 +288,35 @@
                             <p class="mb-2"><strong>⏱️ Tempo estimado:</strong> <span id="durationEco"></span> min</p>
                         </div>
                         <div class="col-md-6">
-                            <p class="mb-2"><strong>🛣️ Distância rota padrão:</strong> <span id="distanceStandard"></span> km</p>
-                            <p class="mb-0"><strong>⏱️ Tempo padrão:</strong> <span id="durationStandard"></span> min</p>
+                            <p class="mb-2"><strong>🛣️ Distância outra rota:</strong> <span id="distanceStandard"></span> km</p>
+                            <p class="mb-0"><strong>⏱️ Tempo outra rota:</strong> <span id="durationStandard"></span> min</p>
                         </div>
                     </div>
+                    
+                    <!-- EcoScore Resumido -->
+                    <div id="ecoscore-summary" style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd; display: none;">
+                        <div style="display: flex; justify-content: space-around; align-items: center;">
+                            <div style="text-align: center;">
+                                <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.25rem;">EcoScore Eco</p>
+                                <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary-green); margin: 0;">
+                                    <span id="ecoscore-eco-value">0</span>/100
+                                </p>
+                            </div>
+                            <div style="text-align: center;">
+                                <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.25rem;">EcoScore Outra</p>
+                                <p style="font-size: 1.5rem; font-weight: bold; color: #999; margin: 0;">
+                                    <span id="ecoscore-std-value">0</span>/100
+                                </p>
+                            </div>
+                            <div style="text-align: center;">
+                                <p style="font-size: 0.85rem; color: #666; margin-bottom: 0.25rem;">Diferença</p>
+                                <p style="font-size: 1.5rem; font-weight: bold; color: var(--primary-green); margin: 0;">
+                                    +<span id="ecoscore-diff-value">0</span>%
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #ddd;">
                         <small style="color: #666; font-style: italic;" id="analysisMessage"></small>
                     </div>
@@ -318,8 +384,13 @@
         <div class="footer">
             <p>💚 Juntos por um planeta mais sustentável</p>
                 <hr style="width: 60%; margin: 8px auto; border: 0; border-top: 1px solid #3c3d3d;">
-                <p class="mb-0" style="color: #6c757d; font-size: 0.85rem;">
+                <p class="mb-2" style="color: #6c757d; font-size: 0.85rem;">
                     © 2025 <strong>CyberSquad</strong>. Todos os direitos reservados.
+                </p>
+                <p class="mb-0" style="color: #6c757d; font-size: 0.85rem;">
+                    <a href="https://github.com/brunobws/EcoRouter" target="_blank" style="color: #3b82f6; text-decoration: none;">
+                        <i class="fab fa-github"></i> Veja o código no GitHub
+                    </a>
                 </p>
         </div>
     </div>

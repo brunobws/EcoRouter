@@ -3,6 +3,13 @@
             --secondary-blue: #3b82f6;
             --light-green: #f0fdf4;
             --light-blue: #eff6ff;
+            --margin-base: 1.5rem;
+            --padding-base: 1.5rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
         }
 
         body {
@@ -14,12 +21,12 @@
         .main-container {
             max-width: 900px;
             margin: 0 auto;
-            padding: 2rem 1rem;
+            padding: var(--margin-base);
         }
 
         .header {
             text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: var(--margin-base);
         }
 
         .header h1 {
@@ -30,6 +37,7 @@
             align-items: center;
             justify-content: center;
             gap: 1rem;
+            margin-bottom: 0.5rem;
         }
 
         .header .icon {
@@ -40,15 +48,15 @@
         .header p {
             font-size: 1.25rem;
             color: #6b7280;
-            margin-top: 0.5rem;
+            margin: 0;
         }
 
         .form-card {
             background: white;
             border-radius: 1.5rem;
-            padding: 2.5rem;
+            padding: var(--padding-base);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
+            margin-bottom: var(--margin-base);
         }
 
         .google-map {
@@ -74,6 +82,7 @@
             padding: 0.75rem 1rem;
             font-size: 1rem;
             transition: all 0.3s;
+            margin-bottom: 0.25rem;
         }
 
         .form-control:focus {
@@ -91,7 +100,7 @@
             font-weight: bold;
             width: 100%;
             transition: all 0.3s;
-            margin-top: 1rem;
+            margin-top: var(--margin-base);
         }
 
         .btn-calculate:hover {
@@ -109,15 +118,20 @@
             border-radius: 0.75rem;
             border: none;
             padding: 1rem;
+            margin-bottom: var(--margin-base);
         }
 
         .result-card {
             background: white;
             border-radius: 1.5rem;
-            padding: 2rem;
+            padding: var(--padding-base);
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
-            margin-bottom: 1.5rem;
+            margin-bottom: var(--margin-base);
             animation: slideIn 0.5s ease-out;
+        }
+
+        .result-card h2 {
+            margin-bottom: var(--padding-base);
         }
 
         @keyframes slideIn {
@@ -138,6 +152,7 @@
             height: 300px;
             position: relative;
             overflow: hidden;
+            margin-bottom: var(--padding-base);
         }
 
         .map-point {
@@ -191,9 +206,10 @@
             background: linear-gradient(135deg, var(--primary-green), #16a34a);
             color: white;
             border-radius: 1.5rem;
-            padding: 2.5rem;
+            padding: var(--padding-base);
             text-align: center;
             box-shadow: 0 20px 25px -5px rgba(34, 197, 94, 0.3);
+            margin-bottom: var(--margin-base);
         }
 
         .savings-amount {
@@ -206,22 +222,22 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1rem;
-            margin-top: 1.5rem;
+            margin-top: var(--padding-base);
         }
 
         .comparison-item {
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             border-radius: 1rem;
-            padding: 1.5rem;
+            padding: var(--padding-base);
         }
 
         .info-card {
-            margin: 5px;
             background: #eff6ff;
             border: 2px solid #bfdbfe;
             border-radius: 1.5rem;
-            padding: 2rem;
+            padding: var(--padding-base);
+            margin-bottom: var(--margin-base);
         }
 
         .info-card h3 {
@@ -229,11 +245,12 @@
             display: flex;
             align-items: center;
             gap: 0.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: var(--padding-base);
+            margin-top: 0;
         }
 
         .info-item {
-            margin-bottom: 1rem;
+            margin-bottom: var(--padding-base);
             padding-left: 1.5rem;
         }
 
@@ -255,7 +272,21 @@
         .footer {
             text-align: center;
             color: #6b7280;
-            margin-top: 2rem;
+            margin-top: var(--margin-base);
+            padding-top: var(--padding-base);
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer a {
+            transition: opacity 0.3s;
+        }
+
+        .footer a:hover {
+            opacity: 0.8;
         }
 
         @media (max-width: 768px) {
@@ -377,7 +408,7 @@
 .modal-content {
     background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     border-radius: 20px;
-    padding: 2rem;
+    padding: var(--padding-base);
     max-width: 600px;
     width: 90%;
     max-height: 80vh;
@@ -389,7 +420,7 @@
 
 .modal-header {
     text-align: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--padding-base);
 }
 
 .modal-header i {
@@ -405,31 +436,39 @@
     font-size: 1.8rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
+    margin-top: 0;
 }
 
 .modal-header p {
     color: #6c757d;
     font-size: 1rem;
+    margin: 0;
 }
 
 .modal-body {
     color: #333;
     line-height: 1.8;
+    margin-bottom: var(--padding-base);
 }
 
 .modal-body h3 {
     color: var(--primary-green);
     font-size: 1.3rem;
-    margin-top: 1.5rem;
+    margin-top: var(--padding-base);
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
 }
 
+.modal-body h3:first-child {
+    margin-top: 0;
+}
+
 .modal-body ul {
     list-style: none;
     padding-left: 0;
+    margin-bottom: 1rem;
 }
 
 .modal-body li {
@@ -448,8 +487,8 @@
 
 .modal-footer {
     text-align: center;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
+    margin-top: var(--padding-base);
+    padding-top: var(--padding-base);
     border-top: 2px solid #e9ecef;
     display: flex;
     flex-direction: column;
@@ -665,4 +704,52 @@
 
 #calculationsModal .modal-body h3:first-child {
     margin-top: 0;
+}
+
+/* Tabela de EcoScore */
+.modal-body table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+    margin: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.modal-body table th,
+.modal-body table td {
+    padding: 0.75rem;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.modal-body table th {
+    background-color: var(--primary-green);
+    color: white;
+    font-weight: 600;
+    text-align: center;
+}
+
+.modal-body table tbody tr:hover {
+    background-color: #f0fdf4;
+    transition: background-color 0.2s;
+}
+
+.modal-body table tbody tr:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+.modal-body table td:nth-child(2) {
+    text-align: center;
+    font-weight: 600;
+    color: var(--primary-green);
+}
+
+/* Resumo EcoScore nos resultados */
+#ecoscore-summary {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.05), rgba(59, 130, 246, 0.05));
+    padding: 1rem;
+    border-radius: 0.75rem;
+    border-left: 4px solid var(--primary-green);
 }

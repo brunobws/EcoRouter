@@ -171,6 +171,14 @@ async function calculateRoute() {
         document.getElementById('impactMessage').textContent = data.impact_message;
         document.getElementById('analysisMessage').textContent = data.analysis_message || '';
 
+        // Preencher EcoScore resumido
+        if (data.ecoscore) {
+            document.getElementById('ecoscore-eco-value').textContent = data.ecoscore.eco;
+            document.getElementById('ecoscore-std-value').textContent = data.ecoscore.standard;
+            document.getElementById('ecoscore-diff-value').textContent = data.ecoscore.difference;
+            document.getElementById('ecoscore-summary').style.display = 'block';
+        }
+
         if (data.emissions.fuel_saved !== undefined) {
             const fuelDiv = document.getElementById('fuelSaved');
             if (fuelDiv) {
