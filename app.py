@@ -13,10 +13,10 @@ from flask import Flask, render_template, request, jsonify
 import requests
 import os
 from dotenv import load_dotenv
-import urllib3
 import math
+import urllib3
 
-# Desabilitar aviso SSL (seguro para testes)
+# Desabilitar aviso SSL (necessário para desenvolvimento local)
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 # Carregar variáveis de ambiente
@@ -24,13 +24,8 @@ load_dotenv()
 
 app = Flask(__name__)
 
-# Configuração da API OpenRouteService
-ORS_API_KEY = os.getenv('ORS_API_KEY', '')
-ORS_BASE_URL = "https://api.openrouteservice.org"
-VERIFY_SSL = False  # Desabilitar SSL para testes
-
 # Configuração da API Google Maps
-GOOGLE_MAPS_API_KEY = 'AIzaSyDOfhpMIiqWQvCrNeNpLXVLcU8TqoAR37c'
+GOOGLE_MAPS_API_KEY = os.getenv('GOOGLE_MAPS_API_KEY', '')
 
 def geocode_address(address):
     """
@@ -52,7 +47,7 @@ def geocode_address(address):
             'key': GOOGLE_MAPS_API_KEY
         }
         
-        response = requests.get(url, params=params, timeout=10, verify=VERIFY_SSL)
+        response = requests.get(url, params=params, timeout=10, verify=False)
         response.raise_for_status()
         data = response.json()
         
@@ -384,7 +379,7 @@ def get_route(origin_coords, dest_coords):
             'alternatives': 'true'  # Retornar rotas alternativas
         }
         
-        response = requests.get(url, params=params, timeout=10, verify=VERIFY_SSL)
+        response = requests.get(url, params=params, timeout=10, verify=False)
         response.raise_for_status()
         data = response.json()
         

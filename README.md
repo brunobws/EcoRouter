@@ -199,15 +199,14 @@ docker run -p 5000:5000 ecorouter
 
 ### v2.0 (Atual)
 - ✅ Integração completa com Google Maps APIs
-- ✅ Seleção inteligente baseada em velocidade média
-- ✅ Cálculo de emissões com 15% eco factor
+- ✅ EcoScore v4 - Seleção inteligente com 6 fatores
+- ✅ Cálculo de emissões dinâmico
 - ✅ Mapa embed interativo
 - ✅ Botão "Seguir Rota" com Google Maps
 - ✅ Geocodificação Google Maps
 - ✅ Autocomplete de endereços
 
 ### v1.0
-- OpenRouteService (descontinuado)
 - Comparação básica de rotas
 - Sem mapa interativo
 

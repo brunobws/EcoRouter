@@ -40,19 +40,19 @@ def main():
     if not env_path.exists():
         print("📄 Criando arquivo .env...")
         env_path.write_text(
-            "# Configurações do OpenRouteService\n"
-            "# Obtenha sua chave gratuita em: https://openrouteservice.org/sign-up/\n"
-            "# Limites gratuitos: 40.000 requisições por dia\n\n"
-            "ORS_API_KEY=sua_chave_api_aqui\n"
+            "# Configurações do Google Maps\n"
+            "# Obtenha sua chave em: https://cloud.google.com/maps-platform\n"
+            "# APIs habilitadas: Geocoding, Directions, Places Autocomplete, Embed\n\n"
+            "GOOGLE_MAPS_API_KEY=sua_chave_api_aqui\n"
         )
         print("✓ Arquivo .env criado")
-        print("  ⚠️  IMPORTANTE: Edite .env e adicione sua chave OpenRouteService!")
+        print("  ⚠️  IMPORTANTE: Edite .env e adicione sua chave Google Maps!")
     else:
         print("✓ Arquivo .env já existe")
     
     print_header("✅ Setup Concluído!")
     print("Próximos passos:")
-    print("1. Edite o arquivo .env e adicione sua chave OpenRouteService")
+    print("1. Edite o arquivo .env e adicione sua chave Google Maps")
     print("2. Execute: python app.py")
     print("3. Abra: http://127.0.0.1:5000\n")
 
