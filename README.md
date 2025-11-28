@@ -12,7 +12,7 @@
 
 ## 🌍 O que é EcoRouter?
 
-**EcoRouter** é uma aplicação web inteligente que ajuda motoristas a escolherem rotas mais sustentáveis. Utilizando o algoritmo **EcoScore v4**, calcula a eficiência ambiental de múltiplas rotas e apresenta a rota com **menor emissão de CO₂**.
+**EcoRouter** é uma aplicação web inteligente que ajuda motoristas a escolherem rotas mais sustentáveis. Utilizando um algoritimo para calcular a eficiência ambiental de múltiplas rotas e apresenta a rota com **menor emissão de CO₂**.
 
 ### 💚 Por que usar?
 
@@ -33,13 +33,11 @@ A aplicação analisa **6 fatores científicos** para calcular o EcoScore:
 
 [Saiba mais sobre a metodologia EcoScore→](ECOSCORE.md)
 
----
+
 ## ⚡ Instalação
 
 
-👉 **[Guia de Instalação Completo](INSTALACAO.md)** — Instruções passo a passo com troubleshooting
-
----
+👉 **[Guia de Instalação Completo](INSTALACAO.md)** — Instruções passo a passo
 
 ## 🎯 Funcionalidades
 
@@ -52,13 +50,14 @@ A aplicação analisa **6 fatores científicos** para calcular o EcoScore:
    - ♿ Interface acessível e intuitiva
 
 
----
+## 📊 Estatísticas
 
-## 📄 Licença
-
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE.md) para mais detalhes.
-
----
+- **Linguagem:** Python 3.11+
+- **Framework:** Flask 2.x
+- **Frontend:** HTML5, CSS3, JavaScript (ES6)
+- **UI Framework:** Bootstrap 5
+- **API:** Google Maps Platform
+- **Licença:** MIT
 
 
 ## 📚 Recursos Úteis
@@ -68,17 +67,9 @@ Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](L
 - 🗺️ [Google Maps API Docs](https://developers.google.com/maps)
 - 🐍 [Flask Documentation](https://flask.palletsprojects.com/)
 
+## 📄 Licença
 
----
-
-## 📊 Estatísticas
-
-- **Linguagem:** Python 3.11+
-- **Framework:** Flask 2.x
-- **Frontend:** HTML5, CSS3, JavaScript (ES6)
-- **UI Framework:** Bootstrap 5
-- **API:** Google Maps Platform
-- **Licença:** MIT
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE.md) para mais detalhes.
 
 ---
 
