@@ -1,319 +1,221 @@
-# 🌱 EcoRouter v2.0
+# EcoRouter
 
-**Calculadora inteligente de rotas ecológicas com análise de velocidade e economia de CO₂**
+<!-- Badges -->
+[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org)
+[![Flask](https://img.shields.io/badge/Flask-2.x-000000?logo=flask&logoColor=white)](https://flask.palletsprojects.com/)
+[![Google Maps](https://img.shields.io/badge/Google%20Maps-APIs-yellow?logo=googlemaps&logoColor=white)](https://developers.google.com/maps)
+[![HTML5](https://img.shields.io/badge/HTML5-%3E%3D5-orange?logo=html5&logoColor=white)](https://developer.mozilla.org/docs/Web/HTML)
+[![CSS3](https://img.shields.io/badge/CSS3-%3E%3D3-blue?logo=css3&logoColor=white)](https://developer.mozilla.org/docs/Web/CSS)
+[![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?logo=bootstrap&logoColor=white)](https://getbootstrap.com)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-Um aplicativo web que compara múltiplas rotas, seleciona automaticamente a opção mais sustentável baseada em padrões de velocidade, e calcula economia de CO₂, combustível e dinheiro. Inclui visualização em mapa interativo e navegação integrada com Google Maps.
+Calculador de rotas ecológicas com EcoScore v4 — identifica a rota mais eficiente em emissões e combustível.
 
----
-
-## ✨ Funcionalidades
-
-### 🧠 Seleção Inteligente de Rotas
-- **Análise de Velocidade Média**: Compara múltiplas alternativas disponíveis
-- **Rota Eco Automática**: Escolhe a com velocidade constante (menos paradas)
-- **15% Menos Emissões**: Velocidade constante = consumo menor
-
-### 💚 Cálculo de Economia (Anual)
-- 📉 **CO₂ Economizado**: Em kg/ano
-- 🌳 **Equivalência**: Quantas árvores plantadas
-- 🚗 **Km Poupados**: Quilômetros economizados
-- 💰 **Dinheiro Salvo**: Em reais de combustível
-
-### 🗺️ Experiência do Usuário
-- 🗺️ **Mapa Interativo**: Embed do Google Maps em tempo real
-- 🧭 **Botão "Seguir Rota"**: Abre navegação no Google Maps
-- 🔍 **Autocomplete**: Sugestões enquanto digita
-- 📱 **Responsivo**: Desktop e mobile
+Visão curta: uma aplicação Flask que consulta o Google Maps, calcula um EcoScore para cada rota e retorna a rota "ECO" com estimativas de economia de CO₂, combustível e custo.
 
 ---
 
-## 🚀 Instalação
+## Instalação rápida
 
-### 1. Clonar Repositório
-```bash
+- Clone o repositório:
+
+```powershell
 git clone https://github.com/brunobws/EcoRouter.git
-cd EcoRouter
+cd "EcoRouter - Copia"
 ```
 
-### 2. Criar e Ativar Ambiente Virtual
+- Crie e ative um ambiente virtual (Windows PowerShell):
+
 ```powershell
-# Windows PowerShell
 python -m venv venv
 .\venv\Scripts\Activate.ps1
-
-# Mac/Linux
-python3 -m venv venv
-source venv/bin/activate
 ```
 
-### 3. Instalar Dependências
-```bash
+- Instale as dependências:
+
+```powershell
 pip install -r requirements.txt
 ```
 
-### 4. Configurar Google Maps API
+---
 
-1. Vá para [Google Cloud Console](https://console.cloud.google.com/)
-2. Crie um projeto novo
-3. Ative estas APIs:
-   - Google Maps Geocoding API
-   - Google Maps Directions API
-   - Google Places API
-   - Google Maps Embed API
-4. Crie uma chave API (restrição a HTTP referrer)
-5. Copie sua chave
+## Configuração
 
-### 5. Configurar .env
+- Crie um arquivo `.env` com sua chave do Google Maps API:
+
 ```
-GOOGLE_MAPS_API_KEY=sua_chave_aqui
+GOOGLE_MAPS_API_KEY=SEU_KEY_AQUI
 ```
 
-### 6. Executar
-```bash
+- Verifique se ativou as APIs necessárias no Google Cloud Console: Directions, Geocoding, Places e (opcional) Elevation.
+
+---
+
+## Uso rápido
+
+- Execute a aplicação:
+
+```powershell
 python app.py
 ```
-Abra: **http://127.0.0.1:5000**
+
+- Abra `http://127.0.0.1:5000` e preencha Origem, Destino e Frequência semanal. Clique em "Calcular".
 
 ---
 
-## 📖 Como Usar
+## Estrutura mínima do projeto
 
-1. **Digite Origem**: Endereço de partida
-2. **Digite Destino**: Endereço de chegada
-3. **Frequência**: Vezes por semana que faz o trajeto (1-7)
-4. **Clique "Calcular"**: Aguarde análise
-5. **Veja Resultados**:
-   - Comparação de distâncias e tempos
-   - Economia de CO₂ calculada
-   - Equivalência em árvores
-   - Mapa com a rota eco
-6. **Clique "Seguir Rota"**: Abre Google Maps para navegação
+- `app.py` — backend Flask e lógica do EcoScore
+- `ECOSCORE_V4_DOCUMENTATION.md` — documentação técnica do algoritmo
+- `templates/index.html` — frontend
+- `static/` — `script.js` e `style.css`
+- `requirements.txt` — dependências
 
 ---
 
-## 🔧 Tecnologias
+## Sugestões rápidas para melhorar o README e a documentação EcoScore
 
-| Camada | Tecnologia |
+- Deixe o `README.md` objetivo: instalação, configuração da API, comando de execução e link para a documentação técnica `ECOSCORE_V4_DOCUMENTATION.md`.
+- No `ECOSCORE_V4_DOCUMENTATION.md`, adicione um sumário (TOC), exemplos de entrada/saída (JSON), pseudocódigo/fluxograma e exemplos numéricos curtos.
+- Documente endpoints (ex.: `POST /calculate`) com exemplos de payloads e respostas.
+- Inclua um tópico "Como contribuir" e instruções para executar testes (se houver).
+- Adicione um CHANGELOG simples e um arquivo LICENSE se ainda não existir.
+
+---
+
+## Contribuição
+
+- Fork → branch → commit → PR. Abra uma issue para discutir mudanças maiores.
+
+---
+
+## Licença
+
+MIT (ver arquivo `LICENSE` se existir).
+
+---
+
+## Autor
+
+Bruno Silva — https://github.com/brunobws
+
+---
+
+Para detalhes técnicos completos do EcoScore, veja `ECOSCORE_V4_DOCUMENTATION.md`.
 |--------|-----------|
-| Backend | Flask 2.3.3 (Python) |
-| Frontend | HTML5, CSS3, JavaScript (ES6+) |
-| Estilo | Bootstrap 5, Font Awesome 6 |
-| APIs | Google Maps (4 serviços) |
 
 ---
 
-## 📊 Fórmulas de Cálculo
+## Saiba mais sobre o EcoScore
 
-### Seleção de Rota
-```
-velocidade_media = distancia_total / tempo_total (em horas)
-rota_eco = rota com menor velocidade média
-```
-**Por quê?** Menor velocidade = menos paradas = consumo constante
+- Para entender a metodologia completa do EcoScore (fórmulas, pesos, exemplos), acesse o arquivo de documentação técnica:
 
-### Emissões de CO₂
-```
-CO₂_padrao = distancia_padrao × 0.115 kg/km × frequencia × 52 semanas
-CO₂_eco    = distancia_eco × 0.098 kg/km × frequencia × 52 semanas
-economia   = CO₂_padrao - CO₂_eco
-```
-**15% de redução** vem da velocidade constante (menos aceleração)
-
-### Equivalências
-```
-arvores      = economia_co2 / 21 kg (1 árvore absorve 21 kg CO₂/ano)
-km_poupados  = diferenca_distancia × frequencia × 52
-dinheiro     = km_poupados × (combustível/km) × preço_litro
-```
+	- `ECOSCORE_V4_DOCUMENTATION.md` (documentação completa do EcoScore v4)
 
 ---
 
-## 📁 Estrutura do Projeto
+## Tecnologias e funcionalidades
 
-```
-EcoRouter/
-├── app.py                    # Backend Flask
-├── requirements.txt          # Dependências Python
-├── setup.py                  # Setup do projeto
-├── .env                      # Variáveis de ambiente
-├── .gitignore                # Git config
-├── README.md                 # Este arquivo
-├── templates/
-│   └── index.html            # Frontend
-├── static/
-│   ├── script.js             # JavaScript
-│   └── style.css             # CSS
-└── venv/                     # Ambiente virtual (ignorado no Git)
-```
+- Tecnologias (ícones representativos):
+	- 🐍 `Python` — lógica do backend e cálculos
+	- ⚗️ `Flask` — servidor web e endpoints
+	- 🌐 `Google Maps APIs` — Directions, Geocoding, Places (Autocomplete) e opcional Elevation
+	- 💻 `HTML/CSS/JavaScript` — interface do usuário
+	- 🎨 `Bootstrap` — estilos e responsividade
+	- 📦 `requests` / `python-dotenv` — chamadas HTTP e configuração por `.env`
 
----
-
-## 🔐 Segurança
-
-- ✅ Chave API no `.env` (nunca commitada no Git)
-- ✅ `.gitignore` protege `venv/` e `.env`
-- ✅ Requisições para Google Maps pelo backend
-- ✅ Nenhum dado sensível no frontend
+- Funcionalidades principais:
+	- 🌿 Cálculo do EcoScore v4 para múltiplas rotas
+	- 🗺️ Visualização de rotas no mapa e polyline da rota ECO
+	- 🔁 Comparação entre rota padrão e rota ECO (distância, tempo, emissões)
+	- 📈 Estimativa anual de economia de CO₂, combustível e custo
+	- 🔎 Autocomplete de endereços (Places API)
+	- ⚙️ Instalação automatizada via `setup.py`
 
 ---
 
-## 🐛 Resolução de Problemas
+## Instalação (recomendada)
 
-### "ModuleNotFoundError: No module named 'flask'"
-**Solução**: Ativar venv e instalar dependências
-```bash
+O projeto inclui um script de setup automático: `setup.py`. Ele cria um `venv`, instala as dependências do `requirements.txt` e cria um arquivo `.env` de exemplo.
+
+- Para usar o instalador automático:
+
+```powershell
+# No PowerShell (Windows)
+python setup.py
+# ou, de forma explícita:
+python setup.py
+```
+
+- O que o `setup.py` faz (verificado no arquivo `setup.py` do repositório):
+	- Detecta a versão do Python.
+	- Cria o diretório `venv` se não existir.
+	- Instala as dependências usando o `pip` do `venv`.
+	- Cria um `.env` com um placeholder para `GOOGLE_MAPS_API_KEY` se não existir.
+
+- Se preferir instalar manualmente, os passos equivalentes são:
+
+```powershell
+python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 ```
 
-### "Erro 403 - Geocoding API not enabled"
-**Solução**: Ativar Google Maps Geocoding API no Cloud Console
-
-### "Mapa não aparece"
-**Solução**: Verificar se chave API tem Google Maps Embed API ativada
-
-### "Autocomplete não funciona"
-**Solução**: Ativar Google Places API no Cloud Console
-
 ---
 
-## 🚀 Deployment
+## Configuração
 
-### Heroku
-```bash
-git push heroku main
+- Crie/edite o arquivo `.env` com sua chave do Google Maps API:
+
+```
+GOOGLE_MAPS_API_KEY=SEU_KEY_AQUI
 ```
 
-### Vercel + Backend Separado
-Separar frontend (Vercel) e backend (Railway/Render)
-
-### Docker
-```bash
-docker build -t ecorouter .
-docker run -p 5000:5000 ecorouter
-```
+- As APIs recomendadas no Google Cloud Console: `Directions API`, `Geocoding API`, `Places API` (Autocomplete) e `Maps Embed API`. Para obter informações de elevação (opcional), habilite `Elevation API`.
 
 ---
 
-## 📝 Histórico de Mudanças
+## Uso rápido
 
-### v2.0 (Atual)
-- ✅ Integração completa com Google Maps APIs
-- ✅ EcoScore v4 - Seleção inteligente com 6 fatores
-- ✅ Cálculo de emissões dinâmico
-- ✅ Mapa embed interativo
-- ✅ Botão "Seguir Rota" com Google Maps
-- ✅ Geocodificação Google Maps
-- ✅ Autocomplete de endereços
+- Execute a aplicação:
 
-### v1.0
-- Comparação básica de rotas
-- Sem mapa interativo
-
----
-
-## 🤝 Contribuir
-
-1. Fork o repositório
-2. Crie uma branch (`git checkout -b feature/MinhaFeature`)
-3. Commit mudanças (`git commit -m 'Add MinhaFeature'`)
-4. Push (`git push origin feature/MinhaFeature`)
-5. Abra um Pull Request
-
----
-
-## 📄 Licença
-
-MIT License - Veja LICENSE para detalhes
-
----
-
-## 👤 Autor
-
-**Bruno Silva** - [GitHub](https://github.com/brunobws)
-
----
-
-## ❓ FAQ
-
-### Por que precisa de um ambiente virtual do Python?
-
-**Ambiente virtual = pasta isolada com Python e pacotes específicos do projeto**
-
-#### 🎯 Por quês:
-
-1. **Isolamento de Dependências**
-   - Seu PC pode ter Python 3.8, 3.9, 3.10, etc
-   - Cada projeto pode precisar de versões diferentes
-   - Venv cria um Python isolado para EcoRouter
-   - Não afeta outros projetos
-
-2. **Evitar Conflitos**
-   - Projeto A precisa: Flask 2.0
-   - Projeto B precisa: Flask 3.0
-   - Sem venv: conflito!
-   - Com venv: cada um em sua bolha
-
-3. **Reproduzibilidade**
-   - requirements.txt lista versões exatas
-   - Outro dev faz `pip install -r requirements.txt`
-   - Instala EXATAMENTE as mesmas versões
-   - Projeto funciona igual em todos os PCs
-
-4. **Limpeza**
-   - Instalar globalmente: `pip install flask` (contamina seu PC)
-   - Instalar em venv: `pip install flask` (só nesta pasta)
-   - Deletar projeto: `rm -rf venv/` (limpa tudo)
-
-5. **Deployement**
-   - Heroku/Railway/Docker usam requirements.txt
-   - Criam um venv no servidor
-   - Instalam dependências
-   - Seu projeto roda exatamente como local
-
-#### 📊 Exemplo Visual:
-```
-Sem venv (❌ BAD):
-  Seu PC
-  ├── Python 3.10 (global)
-  ├── Flask 2.3.3
-  ├── Requests 2.31.0
-  ├── ... 50 pacotes instalados globalmente
-  └── Tudo misturado!
-
-Com venv (✅ GOOD):
-  Seu PC
-  └── Python 3.10 (global)
-  
-  EcoRouter/
-  └── venv/
-      ├── Python 3.10 (cópia isolada)
-      ├── Flask 2.3.3
-      ├── Requests 2.31.0
-      └── Tudo limpo e isolado!
-```
-
-#### 🔧 Comandos:
 ```powershell
-# Criar
-python -m venv venv
-
-# Ativar
-.\venv\Scripts\Activate.ps1
-
-# Desativar
-deactivate
+python app.py
 ```
 
-#### ✨ Boa Prática:
-- ✅ SEMPRE usar venv para projetos Python
-- ✅ Adicionar `venv/` no `.gitignore`
-- ✅ Usar `requirements.txt` para documentar dependências
-- ✅ Ativar venv antes de trabalhar no projeto
+- Abra `http://127.0.0.1:5000`, preencha Origem, Destino e Frequência semanal e clique em "Calcular".
 
 ---
 
-## 📞 Suporte
+## Créditos
 
-Dúvidas? Abra uma [Issue](https://github.com/brunobws/EcoRouter/issues)
+- Desenvolvido por: **Bruno William da Silva**
+- Finalidade: Projeto pessoal e trabalho acadêmico para a faculdade **FACENS - Sorocaba**
+
+---
+
+## Contato
+
+Se tiver alguma dúvida ou sugestão, sinta-se à vontade para entrar em contato:
+
+- **Nome:** Bruno William da Silva
+- **Email:** brun0ws@outlook.com
+- **LinkedIn:** Bruno William da Silva
+
+---
+
+## Contribuição
+
+- Fork → branch → commit → PR. Abra uma issue para discutir mudanças maiores.
+
+---
+
+## Licença
+
+MIT (ver arquivo `LICENSE` se existir).
+
+---
+
+Para detalhes técnicos completos do EcoScore, veja `ECOSCORE_V4_DOCUMENTATION.md`.
 
