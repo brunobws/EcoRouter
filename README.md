@@ -1,4 +1,4 @@
-# EcoRouter
+# 🌱 Bem-vindo ao EcoRouter!
 
 <!-- Badges -->
 [![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org)
@@ -10,24 +10,76 @@
 [![Bootstrap](https://img.shields.io/badge/Bootstrap-5-purple?logo=bootstrap&logoColor=white)](https://getbootstrap.com)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-Calculador de rotas ecológicas com [EcoScore](ECOSCORE.md) — identifica a rota mais eficiente em emissões e combustível.
+## 🌍 O que é EcoRouter?
 
-Visão curta: Uma aplicação Flask que consulta o Google Maps, e para cada rota e retorna a rota "ECO" com estimativas de economia de CO₂, combustível e custo.
+**EcoRouter** é uma aplicação web inteligente que ajuda motoristas a escolherem rotas mais sustentáveis. Utilizando o algoritmo **EcoScore v4**, calcula a eficiência ambiental de múltiplas rotas e apresenta a rota com **menor emissão de CO₂**.
+
+### 💚 Por que usar?
+
+- **Economize combustível:** Rotas otimizadas reduzem consumo em até 20%
+- **Reduza emissões:** Evite congestionamentos e paradas desnecessárias
+- **Veja o impacto:** Calcule quanto CO₂ você economiza por ano
+- **Dados reais:** Integração com Google Maps para rotas precisas
+
+### 🔬 Como funciona?
+
+A aplicação analisa **6 fatores científicos** para calcular o EcoScore:
+- ⏱️ Tempo de viagem
+- 📈 Mudanças de elevação
+- 🚦 Número de paradas
+- 🚗 Condições de tráfego
+- 📏 Distância total
+- 🛣️ Tipo de via
+
+[Saiba mais sobre a metodologia EcoScore→](ECOSCORE.md)
 
 ---
-## Funcionalidades
+## ⚡ Instalação
 
-   - 🌿 Cálculo do EcoScore v4 para múltiplas rotas
-   - 🗺️ Visualização de rotas no mapa e polyline da rota ECO
-   - 🔁 Comparação entre rota padrão e rota ECO (distância, tempo, emissões)
+
+👉 **[Guia de Instalação Completo](INSTALACAO.md)** — Instruções passo a passo com troubleshooting
+
+---
+
+## 🎯 Funcionalidades
+
+   - 🌿 Cálculo inteligente do EcoScore v4 para múltiplas rotas
+   - 🗺️ Visualização interativa de rotas no mapa com polyline da rota ECO
+   - 🔁 Comparação lado a lado: rota padrão vs rota ECO
    - 📈 Estimativa anual de economia de CO₂, combustível e custo
-   - 🔎 Autocomplete de endereços (Places API)
+   - 🔎 Autocomplete de endereços (Places API do Google)
+   - 📱 Design responsivo (funciona em mobile e desktop)
+   - ♿ Interface acessível e intuitiva
 
 
+---
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE.md) para mais detalhes. **
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE.md) para mais detalhes.
+
+---
+
+
+## 📚 Recursos Úteis
+
+- 📖 [Documentação do EcoScore](ECOSCORE.md)
+- 📖 [Guia de Instalação](INSTALACAO.md)
+- 🗺️ [Google Maps API Docs](https://developers.google.com/maps)
+- 🐍 [Flask Documentation](https://flask.palletsprojects.com/)
+
+
+---
+
+## 📊 Estatísticas
+
+- **Linguagem:** Python 3.11+
+- **Framework:** Flask 2.x
+- **Frontend:** HTML5, CSS3, JavaScript (ES6)
+- **UI Framework:** Bootstrap 5
+- **API:** Google Maps Platform
+- **Licença:** MIT
+
 ---
 
 ## 📧 Contato
