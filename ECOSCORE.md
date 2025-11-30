@@ -1,8 +1,8 @@
-# 🌍 EcoScore v4 - Documentação Completa
+# 🌍 EcoScore - Documentação Completa
 
 ## 📋 Visão Geral
 
-**EcoScore v4** é um sistema inteligente de pontuação (0-100) que avalia a eficiência ambiental de uma rota de dirigibilidade baseado em 6 fatores científicos e dados reais do Google Maps.
+**EcoScore v4** é um sistema inteligente de pontuação (0-100) criado por nnós que avalia a eficiência ambiental de uma rota de dirigibilidade baseado em 6 fatores científicos e dados reais do Google Maps.
 
 **Rota ECO** = A rota com **MAIOR EcoScore** (mais eficiente em combustível e emissões)
 
@@ -293,9 +293,9 @@ DECISÃO: Rota B (EcoScore 78.9) é selecionada como ECO
 
 ---
 
-## ✅ Benefícios do EcoScore v4
+## ✅ Benefícios do EcoScore
 
-| Aspecto | Versão Anterior | EcoScore v4 |
+| Aspecto | Versão Anterior | EcoScore |
 |---------|-----------------|-----------|
 | **Lógica** | Velocidade média | 6 fatores científicos |
 | **Normalização** | Valores fixos | Dinâmica (adaptada) |
