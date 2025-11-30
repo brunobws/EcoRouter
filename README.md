@@ -41,7 +41,7 @@ A aplicação analisa **6 fatores científicos** para calcular o EcoScore:
 
 ## 🎯 Funcionalidades
 
-   - 🌿 Cálculo inteligente do EcoScore v4 para múltiplas rotas
+   - 🌿 Cálculo inteligente do EcoScore para múltiplas rotas
    - 🗺️ Visualização interativa de rotas no mapa com polyline da rota ECO
    - 🔁 Comparação lado a lado: rota padrão vs rota ECO
    - 📈 Estimativa anual de economia de CO₂, combustível e custo
