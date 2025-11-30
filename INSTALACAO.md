@@ -40,11 +40,9 @@ cd EcoRouter
 Na raiz do projeto, crie um arquivo chamado `.env`:
 
 ```bash
-# Windows (PowerShell)
+# Windows (PowerShell) Ou Mac
 echo "GOOGLE_MAPS_API_KEY=sua_chave_aqui" > .env
 
-# Linux/Mac
-echo "GOOGLE_MAPS_API_KEY=sua_chave_aqui" > .env
 ```
 
 Ou edite o arquivo `.env` manualmente e adicione:
@@ -53,7 +51,7 @@ Ou edite o arquivo `.env` manualmente e adicione:
 GOOGLE_MAPS_API_KEY=sua_chave_api_aqui
 ```
 
-⚠️ **IMPORTANTE:** Nunca compartilhe sua chave de API! Adicione `.env` ao `.gitignore`
+⚠️ **IMPORTANTE:** Nunca compartilhe sua chave de API! 
 
 ---
 
@@ -62,11 +60,8 @@ GOOGLE_MAPS_API_KEY=sua_chave_api_aqui
 ### Usando o Script de Setup
 
 ```bash
-# Windows
 python setup.py
 
-# Linux/Mac
-python3 setup.py
 ```
 
 O script irá:
@@ -166,23 +161,6 @@ Depois de instalar com sucesso:
 
 ---
 
-## 💡 Dicas de Desenvolvimento
-
-### Ativar o Modo Debug
-O Flask já está em modo debug por padrão. Mudanças no código recarregam automaticamente.
-
-### Instalar Novos Pacotes
-```bash
-pip install nome_do_pacote
-pip freeze > requirements.txt  # Atualizar requirements.txt
-```
-
-### Desativar o Ambiente Virtual
-```bash
-deactivate
-```
-
----
 
 ## 📞 Suporte
 
